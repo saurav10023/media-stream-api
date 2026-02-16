@@ -100,7 +100,7 @@ const publishAVideo = asyncHandler(async (req, res) => {
 
 const getVideoById = asyncHandler(async (req, res) => {
     // const { videoId } = req.params
-    const { videoId } = req.params
+    const { videoId } = req.query
     //TODO: get video by id
     console.log("Raw ID:", videoId);
     console.log("Length:", videoId?.length);
@@ -210,7 +210,8 @@ const deleteVideo = asyncHandler(async (req, res) => {
 })
 
 const togglePublishStatus = asyncHandler(async (req, res) => {
-    const { videoId } = req.params
+    // const { videoId } = req.params
+    const {videoId} = req.query
 
     if(!videoId){
         throw new ApiError(400 , "VideoID is required")
